@@ -6,7 +6,9 @@
 
 namespace App\Traits;
 
-trait Uuid
+use Ramsey\Uuid\Uuid;
+
+trait UuidTrait
 {
     /**
      * Boot function from laravel.
@@ -16,7 +18,7 @@ trait Uuid
         parent::boot();
 
         static::creating(function ($model) {
-            $model->{$model->getKeyName()} = Uuid::generate()->string;
+            $model->{$model->getKeyName()} = (string) Uuid::uuid4()->toString();
         });
     }
 }

@@ -29,8 +29,8 @@
                             <li><a href="{{ route('login') }}">{{ __('auth.login') }}</a></li>
                             <li><a href="{{ route('register') }}">{{ __('auth.register') }}</a></li>
                         @else
-                            <li><a href="#">{{ __('words.home') }}</a></li>
-                            <li><a href="#">{{ __('words.proposals') }}</a></li>
+                            <li><a href="{{ route('home') }}">{{ __('words.home') }}</a></li>
+                            <li><a href="{{ route('proposals.index') }}">{{ __('words.proposals') }}</a></li>
                             <li>
                                 <button type="button"
                                         class="button hollow topbar-responsive-button"

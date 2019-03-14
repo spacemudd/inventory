@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Traits\Uuid;
+use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Tenant extends Model
 {
-    use Uuid;
+    use UuidTrait;
 
     /**
      * @var bool

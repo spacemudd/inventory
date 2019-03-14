@@ -19,6 +19,8 @@ Route::group(['middleware' => 'language'], function () {
     Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('proposals', 'Back\ProposalsController');
 });
 
 
