@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Shafiq al-Shaar <hello@getshafiq.com>
+ *
+ */
 
 return [
 
@@ -15,5 +19,21 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    "login" => "Login",
+    "email" => "E-mail Address",
+    "password" => "Password",
+    "confirm-password" => "Confirm Password",
+    "remember-me" => "Remember Me",
+    "forgot-your-password" => "Forgot Your Password?",
+    "logout" => "Logout",
+    "register" => "Register",
+    "verifying-mobile-number" => "Verifying Mobile Number",
+    "verify" => "Verify",
+    "first-name" => "First Name",
+    "last-name" => "Last Name",
+    "sms-code" => "SMS Code",
+    "start-verification-process" => "Start Verification Process",
+    'username' => 'Username',
+    'email' => 'Email',
 
 ];

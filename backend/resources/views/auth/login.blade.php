@@ -8,16 +8,12 @@
 
         <div class="form-container small-6 small-centered columns">
 
-            <div class="form-title text-center">
-                Login
-            </div>
-
-            <form class="login-form" method="POST" action="{{ route('login') }}">
+            <form style="margin-top:1rem;" class="login-form" method="POST" action="{{ route('login') }}">
 
                 {{ csrf_field() }}
 
                 <div class="email">
-                    <label for="email">{{ __('E-Mail Address') }}</label>
+                    <label for="email">{{ __('auth.email') }}</label>
 
                     <input id="email" type="email" name="email" value="{{ old('email') }}" aria-describedby="emailHelpText" required autofocus>
 
@@ -29,7 +25,7 @@
                 </div>
 
                 <div class="password">
-                    <label for="password">{{ __('Password') }}</label>
+                    <label for="password">{{ __('auth.password') }}</label>
 
                     <input id="password" type="password" name="password" aria-describedby="passwordHelpText" required>
 

@@ -15,43 +15,35 @@
 </head>
 <body>
     <div id="app">
-
-        {{-- top bar  --}}
-        <div class="top-bar">
-
-          <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
-              <li class="menu-text">{{ config('app.name', 'Laravel') }} {{ app()->version() }}</li>
-            </ul>
-          </div>
-
-          <div class="top-bar-right">
-            <ul class="menu">
-                @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
-                @else
-                    <ul class="dropdown menu" data-dropdown-menu>
-                        <li>
-                            <a href="#">{{ Auth::user()->name }}</a>
-                            <ul class="menu">
-                                <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
+        <nav class="top-bar topbar-responsive">
+            <div class="top-bar-title">
+                <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                </span>
+                <a class="topbar-responsive-logo" href="#"><strong>{{ config('app.name', 'Laravel') }}</strong></a>
+            </div>
+            <div id="topbar-responsive" class="topbar-responsive-links">
+                <div class="top-bar-right">
+                    <ul class="menu simple vertical medium-horizontal">
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li><a href="#">Home</a></li>
+                            <li>
+                                <button type="button"
+                                        class="button hollow topbar-responsive-button"
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                                >Logout</button>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        @endif
                     </ul>
-                @endif
-            </ul>
-          </div>
-
-        </div>
+                </div>
+            </div>
+        </nav>
 
         @yield('content')
 
