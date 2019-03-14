@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+
+  reverse-proxy:
+    build:
+      context: ./../reverse-proxy
+      dockerfile: ./Dockerfile
+      args:
+        - FQDN_MAIN=${FQDN_MAIN}
+    working_dir: /var/www
+    ports:
+      - ${APP_PORT}:443
+      - 80:80
+    volumes:
+      - ./../reverse-proxy/certs/cert.crt:/etc/letsencrypt/cert.crt
+      - ./../reverse-proxy/certs/cert.key:/etc/letsencrypt/cert.key
+    restart: always
+    depends_on:
+      - backend-web
+
+  backend-web:
+    build:
+      context: ./../backend-web
+      dockerfile: ./Dockerfile
+      args:
+        - FQDN_MAIN=${FQDN_MAIN}
+    working_dir: /var/www
+    expose:
+      - 8000
+    volumes:
+      - ./../backend:/var/www
+    depends_on:
+      - backend
+
+  backend:
+    build: ./../backend
+    volumes:
+      - ./../backend:/var/www
+    working_dir: /var/www
+    expose:
+      - 9000
+    environment:
+      - DB_PORT=3306
+      - DB_HOST=database-service
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+
+  database-service:
+    image: mariadb:10.2
+    command: '--innodb-flush-method=fsync'
+    restart: always
+    volumes:
+     - ../mollemo-db:/var/lib/mysql
+    ports:
+      - 33066:3306
+    environment:
+     - MYSQL_DATABASE=${DB_DATABASE}
+     - MYSQL_USER=${DB_USERNAME}
+     - MYSQL_PASSWORD=${DB_PASSWORD}
+     - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
