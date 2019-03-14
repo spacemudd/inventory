@@ -20,7 +20,7 @@ class AddPermissions extends Migration
             'guard_name' => 'web',
             'type' => 'system',
         ]);
-
+        
         cache()->clear();
     }
 
@@ -33,11 +33,11 @@ class AddPermissions extends Migration
     public function down()
     {
         $perm = Permission::findByName('create-proposal');
-
+        
         if ($perm) {
             $perm->delete();
         }
-
+        
         cache()->clear();
     }
 }

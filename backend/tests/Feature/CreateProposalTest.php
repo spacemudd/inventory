@@ -11,14 +11,14 @@ class CreateProposalTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
-    public function test_seeing_proposal_in_top_bar()
+    public function test_user_can_see_proposal_in_top_bar()
     {
         $user = factory(User::class)->create();
 
         $user->givePermissionTo('create-proposal');
 
         $this->actingAs($user)
-            ->get('/')
+            ->get('/home')
             ->assertSeeText('Proposals');
     }
 }

@@ -30,6 +30,7 @@
                             <li><a href="{{ route('register') }}">{{ __('auth.register') }}</a></li>
                         @else
                             <li><a href="#">{{ __('words.home') }}</a></li>
+                            <li><a href="#">{{ __('words.proposals') }}</a></li>
                             <li>
                                 <button type="button"
                                         class="button hollow topbar-responsive-button"
