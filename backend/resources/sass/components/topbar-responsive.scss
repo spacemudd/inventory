@@ -1,3 +1,8 @@
+/*!
+ * @author Shafiq al-Shaar <hello@getshafiq.com>
+ *
+ */
+
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 
@@ -102,5 +107,12 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
     } @else {
       animation: none;
     }
+  }
+}
+
+.menu.simple li + li {
+  [dir="rtl"] & {
+    margin-left: 0rem;
+    margin-right: 1rem;
   }
 }

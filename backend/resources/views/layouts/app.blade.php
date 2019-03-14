@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} {{ app()->version() }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,15 +26,15 @@
                 <div class="top-bar-right">
                     <ul class="menu simple vertical medium-horizontal">
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">{{ __('auth.login') }}</a></li>
+                            <li><a href="{{ route('register') }}">{{ __('auth.register') }}</a></li>
                         @else
-                            <li><a href="#">Home</a></li>
+                            <li><a href="#">{{ __('words.home') }}</a></li>
                             <li>
                                 <button type="button"
                                         class="button hollow topbar-responsive-button"
                                         onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                                >Logout</button>
+                                >{{ __('auth.logout') }}</button>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>

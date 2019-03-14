@@ -15,7 +15,7 @@
                 <div class="email">
                     <label for="email">{{ __('auth.email') }}</label>
 
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" aria-describedby="emailHelpText" required autofocus>
+                    <input dir="ltr" id="email" type="email" name="email" value="{{ old('email') }}" aria-describedby="emailHelpText" required autofocus>
 
                     @if ($errors->has('email'))
                         <span class="help-text" id="emailHelpText">
@@ -38,19 +38,19 @@
 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('auth.remember-me') }}
                     </label>
                 </div>
 
                 <div class="button-plus-link">
                     <button type="submit" class="button">
-                        {{ __('Login') }}
+                        {{ __('auth.login') }}
                     </button>
 
-                    <a href="{{ route('password.request') }}">
-                        &nbsp;
-                        {{ __('Forgot Your Password?') }}
-                    </a>
+                    {{--<a href="{{ route('password.request') }}">--}}
+                        {{--&nbsp;--}}
+                        {{--{{ __('Forgot Your Password?') }}--}}
+                    {{--</a>--}}
                 </div>
             </form>
 

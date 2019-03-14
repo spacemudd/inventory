@@ -9221,6 +9221,11 @@ html.is-reveal-open body {
   }
 }
 
+/*!
+ * @author Shafiq al-Shaar <hello@getshafiq.com>
+ *
+ */
+
 .topbar-responsive {
   background: #2c3840;
   padding: 1rem 1.5rem;
@@ -9353,5 +9358,10 @@ html.is-reveal-open body {
     -webkit-animation: fadeIn 1s ease-in;
             animation: fadeIn 1s ease-in;
   }
+}
+
+[dir=rtl] .menu.simple li + li {
+  margin-left: 0rem;
+  margin-right: 1rem;
 }
 

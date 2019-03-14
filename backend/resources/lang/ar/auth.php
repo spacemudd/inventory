@@ -39,5 +39,5 @@ return [
     "sms-code" => "كود (SMS)",
     "start-verification-process" => "بدء عملية التأكيد",
     'username' => 'اسم المستخدم',
-    'email' => 'Email',
+    'email' => 'البريد الإكتروني',
 ];
